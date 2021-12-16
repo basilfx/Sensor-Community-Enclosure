@@ -9,9 +9,14 @@ the air quality. This data is then shared with
 [Sensor.Community](https://maps.sensor.community/) and other instances, to
 keep track of the (local) air quality.
 
+[<img src="images/Enclosure.jpg" width="384" alt="Sensor enclosure overview.">](images/Enclosure.jpg)
+[<img src="images/Outtake Holes.jpg" width="384" alt="Sensor outtake holes.">](images/Outtake%20Holes.jpg)
+[<img src="images/Tube Bracket Installed.jpg" width="384" alt="Sensor intake bracket.">](images/Tube%Bracked%Installed.jpg)
+[<img src="images/Inside Enclosure.jpg" width="384" alt="Inside the sensor.">](images/Inside%20Enclosure.jpg)
+
 ## Features
 * 3D printed parts (for the specific enclosure I used, +/- 80x120 mm)
-* Rigid mounting with additional weather-proofing
+* Rigid mounting with additional weatherproofing
 * Air quality, temperature and GPS (location and altitude)
 
 ## Contents
@@ -21,7 +26,7 @@ keep track of the (local) air quality.
 * The `images/` folder contains several pictures of the assembled sensor.
 
 ## Instructions
-Assembly and flashing instructions can be found in
+Printing, assembly and flashing instructions can be found in
 [Instructions.md](Instructions.md).
 
 ## License

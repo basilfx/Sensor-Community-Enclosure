@@ -23,6 +23,9 @@ The steps in these introductions are all the steps I needed to create a single
 enclosure. Feel free to adapt, replace or skip any of the steps, to make your
 own version.
 
+Some of the photos in this guide are from a prototype version. They might not
+look similar, but they are correct.
+
 ## Printing the parts
 You can find the printable files in the [3d](3d/) folder. The parts do not
 require special attention. Make sure that you print the parts with the biggest
@@ -66,13 +69,17 @@ cable loom and use wire-to-board connectors.
 
 The cable should be assembled as follows (do not solder it to the ESP8266 yet):
 
-<img src="images/wiring.svg" />
+[<img src="images/Wiring.jpg" width="384" alt="The actual wiring loom.">](images/Wiring.jpg)
+[<img src="images/Wiring Overview.svg" width="384" alt="Overview of the wiring loom.">](images/Wiring%20Overview.svg)
 
 You can re-use the JST connector housing that comes with the SDS011 cable.
+
+
 
 ### Drilling the enclosure holes
 For this step, you will need:
 
+* enclosure (Gewiss GW44 205)
 * A slow (hand-operated) drill with a 1 - 1.2 mm drill bit
 * An electric drill with a 3 mm drill bit
 * A 16 mm spade drill bit
@@ -89,6 +96,9 @@ to the edge of the enclosure.
 The small holes should be drilled carefully. Use a hand-operated drill, because
 an electric drill will melt the plastic, clogging up the drill and potentially
 breaking the drill itself.
+
+[<img src="images/Hand Drill.jpg" width="384" alt="A hand drill">](images/Hand%20Drill.jpg)
+[<img src="images/Drilling.jpg" width="384" alt="Drilling in of the outtake holes.">](images/Drilling.jpg)
 
 The bigger holes should be pre-drilled using a 3 mm drill bit first. Use a
 piece of scrap wood on the back side, so that the drill bit does not shoot
@@ -129,6 +139,8 @@ bracket. The easiest is to do this with a soldering iron. Make sure that the
 molten plastic does not get inside the brass insert. One way to do so, is to
 insert a small M3 bolt first (e.g. 6 mm bolt).
 
+[<img src="images/Brass Inserts.jpg" width="384" alt="Sensor outtake holes.">](images/Brass%20Inserts.jpg)
+
 Mount the enclosure bracket next. Use the four M3 self-tapping screws to secure
 it to the enclosure.
 
@@ -148,6 +160,9 @@ the cable gland itself.
 
 The rubber seal ensures that the cable gland does not get loose and prevents
 water from coming in.
+
+[<img src="images/Cable Gland Seal.jpg" width="384" alt="Cable gland with seal.">](images/Cable%20Gland%20Seal.jpg)
+[<img src="images/Cable Gland Nut.jpg" width="384" alt="Cable gland with seal and nut.">](images/Cable%20Gland%20Nut.jpg)
 
 If you decide to mount the enclosure, now is the time to mount it to its final
 destination. The enclosure mounting screws will be hard to reach once you
@@ -173,6 +188,8 @@ Fix the GPS sensor and the ESP8266 on the PCB bracket.
 Install the brass stand-offs in the brass inserts in the enclosure bracket.
 Then place the air quality sensor on top, with the fan down. Then place the
 PCB bracket on top, using 3 mm spacers. Fix them with the 10 mm bolts.
+
+[<img src="images/Brass Standoffs.jpg" width="384" alt="Installation of the brass standoffs.">](images/Brass%20Standoffs.jpg)
 
 Then connect the wiring according to the diagram above. Use the following
 pinout:
@@ -200,6 +217,8 @@ NEO-6m:
 * Pin 3 (RX) -> Pin D6 (TX)
 * Pin 4 (GND) -> GND
 
+[<img src="images/Inside Enclosure.jpg" width="384" alt="Inside an assembled enclosure.">](images/Inside%20Enclosure.jpg)
+
 ### Hooking it up
 For this step, you will need:
 
@@ -215,10 +234,15 @@ prevent water (if any at all) from running down the tube into the sensor.
 Then install the tube bracket on the cable gland and install the flexible tube
 to the bracket, with a tube fixing ring on the end.
 
+[<img src="images/Tube Bracket.jpg" width="384" alt="Tube bracket without tube.">](images/Tube%20Bracket.jpg)
+[<img src="images/Tube Bracket Installed.jpg" width="384" alt="Tube bracket installed.">](images/Tube%20Bracket%Installed.jpg)
+
 Install the power supply cable. The USB cable should fit thourght the 16 mm
-cable gland. Route it behind the PCB bracket and connect it to the ESP. Use
+cable gland. Route it behind the PCB bracket and connect it to the ESP8266. Use
 zip tie to fix it to the PCB bracket top hole, for additional stress
 relief.
+
+[<img src="images/Stress Relief.jpg" width="384" alt="Zip tie for stress relief.">](images/Stress%20Relief.jpg)
 
 The cable gland on the bottom should be tightened all the way for the power
 supply cable. This acts as an additional strain relief. The cable gland one on
@@ -253,6 +277,8 @@ For this step, you will need:
 Last step is to install the lid. The enclosure comes with four screws to close
 the lid. For additional water proofing, add a M3 rubber seal and finish it off
 with a screw hole cover.
+
+[<img src="images/Weatherproofing.jpg" width="384" alt="Weatherproofing of the screws.">](images/Weatherproofing.jpg)
 
 The screw hole cover can be removed with a large flat head.
 
