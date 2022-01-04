@@ -315,30 +315,49 @@ Once flashing is completed, power cycle the sensor.
 Power-on the sensor. If it has not been configured before, it will start a
 wireless network. Connect to this network, and navigate to http://192.168.4.1.
 
+[<img src="images/Configuration.png" width="384" alt="Configuration screen (Dutch firmware).">](images/Configuration.png)
+
 On the configuration page, you can configure the WiFi network to use. It is
 also possible to configure the hardware and API connections. Some points of
 attention:
 
-* Disable beta updates
+* Make a note of the 7-digit identifier shown in the top bar. You will need
+  this in the next step.
+* Enable beta updates. Note that your sensor may seem unresponsive the next
+  time it boots, because it will most likely download the new firmware.
 * Enable the Sensor.Community API integratgin (using HTTPS). Enable others as
   desired. You do not need to enable any API integrations if you decide to use
   the local Home Assistant integration.
-* Ensure that you enable the right hardware.
+* Ensure that you enable the right hardware. For this build, enable
+  * SDS011
+  * BME280
+  * GPS (NEO 6M)
 
-If the sensor cannot find the wireless network, it will start its own wireless
-network again.
+If the sensor cannot find the configured wireless network, it will start its
+own wireless network again. You can then start over.
 
 ## Registration
 If you decide to contribute to Sensor.Community, you can go to
 https://devices.sensor.community/ to create an account.
 
 Once you have created an account, you can add sensors using the sensor
-identifier from the previous step.. An important note here is that you cannot
+identifier from the previous step. An important note here is that you cannot
 modify an existing sensor, and if you delete it, you cannot register it again.
+Make sure that you add three sensors under the 'Hardware Configuration'
+section:
+
+* SDS011
+* BME280
+* GPS-NEO-6M
 
 Once your sensor is registered, you can look it up at
 https://maps.sensor.community/. It might take some time before the first
 measurements appear.
+
+If you made any mistakes during the registration, please check
+[this](https://forum.sensor.community/t/reregister-unregister-sensor/494) for
+details on how to get support (you will need to send an email and ask them to
+manually correct the registration).
 
 ## Home Assistant integration
 There are two sensor for Home Assistant available. The first one uses the
