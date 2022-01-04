@@ -390,8 +390,6 @@ Finally:
   securely, that there is no dirt inside the sensor and the tube is clean.
 * Discoloration due to UV light is to be expected.
 
-[stimulating]: https://www.samenmetenaanluchtkwaliteit.nl/data/plausibiliteit-van-fijnstofmeting
-
 ## Troubleshooting
 Some things to consider when troubleshooting a sensor:
 
@@ -399,3 +397,7 @@ Some things to consider when troubleshooting a sensor:
   period. If it does not turn on, check the connections. If it does not turn
   off, something might be wrong with the firmware.
 * Check the web interface for debug logging and error counters.
+* Some ESP8266 boards have on-board USB-to-serial. The firmware will output
+  logging to this port (at 9600 baud).
+
+[stimulating]: https://www.samenmetenaanluchtkwaliteit.nl/data/plausibiliteit-van-fijnstofmeting
