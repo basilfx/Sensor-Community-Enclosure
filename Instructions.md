@@ -15,6 +15,7 @@
 * [Configuration](#configuration)
 * [Registration](#registration)
 * [Home Assistant integration](#home-assistant-integration)
+  + [Local Luftdaten](#local-luftdaten)
 * [Mounting instructions](#mounting-instructions)
 * [Troubleshooting](#troubleshooting)
 
@@ -337,6 +338,29 @@ Sensor.Community API, the other directly talks with the sensor.
 
 * https://www.home-assistant.io/integrations/luftdaten/
 * https://github.com/lichtteil/local_luftdaten
+
+### Local Luftdaten
+After installing the integration per installation instructions, add the
+configuration below to your `configuration.yaml`. Aadapt the IP address to
+match your sensor's IP address. The scan interval should not be less than 120
+seconds, because the sensor itself does not update faster than that.
+
+```yaml
+sensor:
+  - platform: local_luftdaten
+    host: [IP HERE]
+    scan_interval: 120
+    name: Air Quality Sensor
+    monitored_conditions:
+      - BME280_humidity
+      - BME280_pressure
+      - BME280_temperature
+      - SDS_P1
+      - SDS_P2
+```
+
+Restart Home Assistant, and you should have additional sensors to add to your
+dashboard.
 
 ## Mounting instructions
 There are some mounting instructions:
