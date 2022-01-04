@@ -303,7 +303,7 @@ For this step, you will need:
 From the command line, invoke:
 
 ```
-esptool.py --baud 921600 --port [PORT] write_flash -fm dio 0x00000 latest_en.bin
+esptool.py --port [PORT] write_flash -fm dio 0x00000 latest_en.bin
 ```
 
 Replace `[PORT]` with the serial port of your sensor. It is typically
