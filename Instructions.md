@@ -85,7 +85,7 @@ For this step, you will need:
 * A 16 mm spade drill bit
 * Small piece of scrap wood
 * Strong adhesive tape
-* Sharp chisel of other deburring tool
+* Sharp chisel or another deburring tool
 
 The drilling step is a time-consuming step.
 
@@ -131,7 +131,7 @@ For this step, you will need:
 
 Drill the enclosure mounting holes first, depending on your desires. If you
 decide to hang it on two scows, make sure that you drill the two top holes
-only. Use the scap wood piece to ensure that the drill bit does not shoot
+only. Use the scrap piece of wood to ensure that the drill bit does not shoot
 through the case.
 
 Insert the M3 brass inserts in the three bigger stand-offs on the enclosure
@@ -166,7 +166,7 @@ water from coming in.
 
 If you decide to mount the enclosure, now is the time to mount it to its final
 destination. The enclosure mounting screws will be hard to reach once you
-finisht the next step. To improve water resistance, use a M3 or M4 seal on the
+finish the next step. To improve water resistance, use a M3 or M4 seal on the
 inside between the screw and the enclosure.
 
 ### Installing the electronics
@@ -237,7 +237,7 @@ to the bracket, with a tube fixing ring on the end.
 [<img src="images/Tube Bracket.jpg" width="384" alt="Tube bracket without tube.">](images/Tube%20Bracket.jpg)
 [<img src="images/Tube Bracket Installed.jpg" width="384" alt="Tube bracket installed.">](images/Tube%20Bracket%Installed.jpg)
 
-Install the power supply cable. The USB cable should fit thourght the 16 mm
+Install the power supply cable. The USB cable should fit thourgh the 16 mm
 cable gland. Route it behind the PCB bracket and connect it to the ESP8266. Use
 zip tie to fix it to the PCB bracket top hole, for additional stress
 relief.
@@ -249,14 +249,15 @@ supply cable. This acts as an additional strain relief. The cable gland one on
 top should be tightened as well, but not too tight. The flexible tube must not
 be compressed too much otherwise it could obstruct the air flow. Make sure that
 if you pull on the tube, it cannot move. Then look down the tube, to see if you
-do not see any inward afflicion of the tube.
+do not see any inward affliction of the tube.
 
 #### Flexible tube length
 The shorter the tube, the better it is. According to the datasheet of the
 sensor, a tube length up to 1 m is allowed. The original manual suggests the
 use of a 20 cm tube. The Dutch National Institute for Public Health and the
-Environment, who are [stimulating] people to join the Sensor.Community, suggests
-to use a tube less than 5 cm, to increase plausibility of measurements.
+Environment, who are [stimulating] people to join the Sensor.Community,
+suggests to use a tube less than 5 cm, to increase plausibility of
+measurements.
 
 For my design, a tube of approximately 15-20 cm is necessary to create an
 unobstructed 180 degree bend. Without a tube, it would be hard to ensure that
@@ -290,7 +291,7 @@ with a screw hole cover.
 
 The screw hole cover can be removed with a large flat head.
 
-Your sensor is now rady for use.
+Your sensor is now ready for use.
 
 ## Flashing the firmware
 For this step, you will need:
@@ -324,7 +325,7 @@ attention:
   this in the next step.
 * Enable beta updates. Note that your sensor may seem unresponsive the next
   time it boots, because it will most likely download the new firmware.
-* Enable the Sensor.Community API integratgin (using HTTPS). Enable others as
+* Enable the Sensor.Community API integration (using HTTPS). Enable others as
   desired. You do not need to enable any API integrations if you decide to use
   the local Home Assistant integration.
 * Ensure that you enable the right hardware. For this build, enable
@@ -354,7 +355,7 @@ the sensor with the enclosure without the lid. Similar results were achieved in
 different environments.
 
 Note that when the lid is not mounted, the sensor is directly exposed to wind.
-These results might be less acurate as well, since a proper temperature sensor
+These results might be less accurate as well, since a proper temperature sensor
 should be mounted out of the wind. Therefore, the actual offset is probably
 somewhere between 1 °C and 2 °C.
 
