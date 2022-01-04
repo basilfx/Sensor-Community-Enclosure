@@ -13,6 +13,7 @@
   + [Finishing steps](#finishing-steps)
 * [Flashing the firmware](#flashing-the-firmware)
 * [Configuration](#configuration)
+  + [Advanced configuration](#advanced-configuration)
 * [Registration](#registration)
 * [Home Assistant integration](#home-assistant-integration)
   + [Local Luftdaten](#local-luftdaten)
@@ -74,8 +75,6 @@ The cable should be assembled as follows (do not solder it to the ESP8266 yet):
 [<img src="images/Wiring Overview.svg" width="384" alt="Overview of the wiring loom.">](images/Wiring%20Overview.svg)
 
 You can re-use the JST connector housing that comes with the SDS011 cable.
-
-
 
 ### Drilling the enclosure holes
 For this step, you will need:
@@ -335,6 +334,32 @@ attention:
 
 If the sensor cannot find the configured wireless network, it will start its
 own wireless network again. You can then start over.
+
+### Advanced configuration
+The ESP8266 is a power-hungry WiFi chip. This results in some heating-up of the
+enclosure, depending on the exact module used and the amount of WiFi traffic.
+This will affect the BME280 temperature and humidity readings.
+
+It is possible to account for an offset of the temperature readings in the
+firmware (this is not possible for humidity, unfortunately). To find the
+offset, it is possible to run the sensor for some time, without the lid of the
+enclosure mounted. The graphs below show the offsets for two of my sensors
+(yellow line is the one without the lid mounted).
+
+[<img src="images/Calibration Temperature.png" width="384" alt="Temperature offset with and without lid.">](images/Calibration%20Temperature.png)
+[<img src="images/Calibration Humidity.png" width="384" alt="Humidity offset with and without lid.">](images/Calibration%20Humidity.png)
+
+The graph show an offset of about 2 °C, and it follows the temperature curve of
+the sensor with the enclosure without the lid. Similar results were achieved in
+different environments.
+
+Note that when the lid is not mounted, the sensor is directly exposed to wind.
+These results might be less acurate as well, since a proper temperature sensor
+should be mounted out of the wind. Therefore, the actual offset is probably
+somewhere between 1 °C and 2 °C.
+
+Drilling bigger outtake holes and installing a fan shroud (e.g. from paper) are
+ways to reduce the effects of self-heating.
 
 ## Registration
 If you decide to contribute to Sensor.Community, you can go to
