@@ -14,6 +14,8 @@
 * [Flashing the firmware](#flashing-the-firmware)
 * [Configuration](#configuration)
   + [Advanced configuration](#advanced-configuration)
+    - [Temperature correction](#temperature-correction)
+    - [GPS configuration](#gps-configuration)
 * [Registration](#registration)
 * [Home Assistant integration](#home-assistant-integration)
   + [Local Luftdaten](#local-luftdaten)
@@ -25,8 +27,9 @@ The steps in these introductions are all the steps I needed to create a single
 enclosure. Feel free to adapt, replace or skip any of the steps, to make your
 own version.
 
-Some of the photos in this guide are from a prototype version. They might not
-look similar, but they are correct.
+Some of the photos in this guide are from a prototype version using the
+Witty Board. While this might look different, all of the steps are quite
+similar.
 
 ## Printing the parts
 You can find the printable files in the [3d](3d/) folder. The parts do not
@@ -42,6 +45,7 @@ You need at least:
 * Enclosure bracket
 * PCB bracket
 * Screw hole covers
+* Temperature sensor cover
 
 For usage with a flexible tube:
 
@@ -52,6 +56,10 @@ For easy drilling of the enclosure:
 
 * Drill templates (top and bottom)
 * Rubber seal templates (16 mm and/or 12 mm)
+
+You might need to adapt the tube fixing rings to your particular tube. There
+might be slight differences in the flexible tube outer diameter. The rings must
+fit tightly, so they stay in place.
 
 ## Assembly
 
@@ -66,6 +74,11 @@ For this step, you will need:
 * Wires (thin, six colors if possible)
 * Pliers, crimping tools and wire strippers
 
+Optionally, if you plan to connect to the power line directly:
+
+* 2-pin 2.54 mm female Dupont header with terminal pins (2x)
+* 2-pin 2.54 mm male Dupont header with terminal pins (2x, for contra cable)
+
 The sensors can be soldered to the ESP8266, but another option is to create a
 cable loom and use wire-to-board connectors.
 
@@ -79,8 +92,8 @@ You can re-use the JST connector housing that comes with the SDS011 cable.
 ### Drilling the enclosure holes
 For this step, you will need:
 
-* enclosure (Gewiss GW44 205)
-* A slow (hand-operated) drill with a 1 - 1.2 mm drill bit
+* Enclosure (Gewiss GW44 205)
+* A slow (hand-operated) drill with a 1 - 1.4 mm drill bit
 * An electric drill with a 3 mm drill bit
 * A 16 mm spade drill bit
 * Small piece of scrap wood
@@ -123,7 +136,7 @@ without scratching the plastic.
 For this step, you will need:
 
 * Enclosure bracket
-* M3 Brass inserts (5.3 mm outer diameter, 6 mm tall)
+* M3 Brass inserts (5.3 mm outer diameter, 5 mm or 6 mm tall)
 * M3 8 mm self-tapping button-head screws (4x)
 * An electric drill with a 3 - 4 mm drill bit
 * Small piece of scrap wood
@@ -137,7 +150,9 @@ through the case.
 Insert the M3 brass inserts in the three bigger stand-offs on the enclosure
 bracket. The easiest is to do this with a soldering iron. Make sure that the
 molten plastic does not get inside the brass insert. One way to do so, is to
-insert a small M3 bolt first (e.g. 6 mm bolt).
+insert a small M3 bolt first (e.g. 5 mm or 6 mm bolt). If you struggle to get
+the M3 brass inserts flush due to the molten plastic, you can decide to drill
+the holes first, so that the molten plastic can get out.
 
 [<img src="images/Brass Inserts.jpg" width="384" alt="Sensor outtake holes.">](images/Brass%20Inserts.jpg)
 
@@ -177,22 +192,31 @@ For this step, you will need:
 * M3 10 mm bolt
 * ESP8266 (Wemos D1 Mini V3)
 * Air quality sensor (SDS011)
-* GPS sensor (NEO 6M with the blue PCB and solderable antenna).
-* Temperature and humidity sensor (BME-280, 5V version)
+* GPS sensor (NEO-6M, NEO-7M or NEO-M8N with the blue PCB and solderable
+  antenna).
+* Temperature and humidity sensor (BME-280, 5 V version)
 * PCB bracket
 * M2 self-taping screws
 * Wiring loom, or wires for soldering
+* Temperature sensor cover
+* Hot glue
 
 Fix the GPS sensor and the ESP8266 on the PCB bracket.
 
 Install the brass stand-offs in the brass inserts in the enclosure bracket.
 Then place the air quality sensor on top, with the fan down. Then place the
-PCB bracket on top, using 3 mm spacers. Fix them with the 10 mm bolts.
+PCB bracket on top, using 3 mm spacers. Fix them with the 10 mm M3 bolts.
 
 [<img src="images/Brass Standoffs.jpg" width="384" alt="Installation of the brass standoffs.">](images/Brass%20Standoffs.jpg)
 
-Then connect the wiring according to the diagram above. Use the following
-pinout:
+The BME-280 temperature sensor can be mounted next to the outtake holes, using
+a small screw. It is recommended to mount the temperature sensor cover as well,
+to isolate the temperature sensor better from the inside air. A drop of hot
+glue should keep it in place. I must admit that this sensor cover is an
+afterthought, to make the temperature readings more accurate.
+
+Finally, connect the wiring loom in accordance with the wiring diagram above.
+Use the following pinout:
 
 SDS011:
 
@@ -200,19 +224,19 @@ SDS011:
 * Pin 2 (RX) -> Pin D2 (GPIO4)
 * Pin 3 (GND) -> GND
 * Pin 4 (2.5m) -> unused
-* Pin 5 (5V) -> 5V
+* Pin 5 (5 V) -> 5 V
 * Pin 6 (1m) -> unused
 
-BME-280 (5V version):
+BME-280 (5 V version):
 
-* Pin 1 (VCC) -> 5V
+* Pin 1 (VCC) -> 5 V
 * Pin 2 (GND) -> GND
 * Pin 3 (SCL) -> Pin D4 (GPIO2)
 * Pin 4 (SDA) -> Pin D3 (GPIO0)
 
-NEO-6m:
+NEO-6M, NEO-7M or NEO-M8N:
 
-* Pin 1 (VCC) -> 5V
+* Pin 1 (VCC) -> 5 V
 * Pin 2 (TX) -> Pin D5 (RX)
 * Pin 3 (RX) -> Pin D6 (TX)
 * Pin 4 (GND) -> GND
@@ -262,10 +286,12 @@ measurements.
 For my design, a tube of approximately 15-20 cm is necessary to create an
 unobstructed 180 degree bend. Without a tube, it would be hard to ensure that
 the sensor is mounted upright AND make it water-resistant. It also ensures that
-the sensor sucks up fresh air (away from the outtake).
+the sensor sucks up fresh air (away from the outtake). You can decrease the
+tube length if you mount the sensor on a dry location (even removing the tube
+bracket at all).
 
 The tube has a inner diameter of 6 mm (~28 mm² of area), the actual intake
-port has a diameter of 5 mm (~19 mm² of area). The 60+ outtake holes (~68 mm²
+port has a diameter of 5 mm (~19 mm² of area). The 85 outtake holes (~96 mm²
 of area) should allow for an unobstructed air flow. I have compared my sensor
 with other nearby sensors, and it performs identical.
 
@@ -331,16 +357,17 @@ attention:
 * Ensure that you enable the right hardware. For this build, enable
   * SDS011
   * BME280
-  * GPS (NEO 6M)
+  * GPS (NEO-6M, NEO-7M or NEO-M8N)
 
 If the sensor cannot find the configured wireless network, it will start its
 own wireless network again. You can then start over.
 
 ### Advanced configuration
-The ESP8266 is a power-hungry WiFi chip. This results in some heating-up of the
-enclosure, depending on the exact module used and the amount of WiFi traffic.
-This will affect the BME280 temperature and humidity readings.
+The WiFi chip and the GPS chip are power-hungry. This results in some
+heating-up of the enclosure, depending on the exact module used and the amount
+of WiFi traffic. This will affect the BME280 temperature and humidity readings.
 
+#### Temperature correction
 It is possible to account for an offset of the temperature readings in the
 firmware (this is not possible for humidity, unfortunately). To find the
 offset, it is possible to run the sensor for some time, without the lid of the
@@ -350,17 +377,20 @@ enclosure mounted. The graphs below show the offsets for two of my sensors
 [<img src="images/Calibration Temperature.png" width="384" alt="Temperature offset with and without lid.">](images/Calibration%20Temperature.png)
 [<img src="images/Calibration Humidity.png" width="384" alt="Humidity offset with and without lid.">](images/Calibration%20Humidity.png)
 
-The graph show an offset of about 2 °C, and it follows the temperature curve of
-the sensor with the enclosure without the lid. Similar results were achieved in
+The graph show an offset of about 1 °C to 2 °C, and it follows the temperature
+curve of the enclosure without the lid. Similar results were achieved in
 different environments.
 
-Note that when the lid is not mounted, the sensor is directly exposed to wind.
-These results might be less accurate as well, since a proper temperature sensor
-should be mounted out of the wind. Therefore, the actual offset is probably
-somewhere between 1 °C and 2 °C.
+#### GPS configuration
+The NEO-M8N is more-efficient than the NEO-6M or NEO-7M. Using the u-blox
+configuration tool, it is possible to enable more-efficient power saving modes,
+at the expense of accuracy (which isn't a problem for a stationary device). Do
+note that that not all devices have built-in flash for storing configuration
+parameters, so they might be erased after power cycling. Consult the following
+sources for more information:
 
-Drilling bigger outtake holes and installing a fan shroud (e.g. from paper) are
-ways to reduce the effects of self-heating.
+* https://www.u-blox.com/sites/default/files/products/documents/u6-PowerMgt_AppNote_%28GPS.G6-X-10014%29.pdf
+* https://www.u-blox.com/sites/default/files/products/documents/PowerManagement_AppNote_%28UBX-13005162%29.pdf
 
 ## Registration
 If you decide to contribute to Sensor.Community, you can go to
@@ -374,7 +404,7 @@ section:
 
 * SDS011
 * BME280
-* GPS-NEO-6M
+* GPS-NEO-6M (also for NEO-7M or NEO-M8)
 
 Once your sensor is registered, you can look it up at
 https://maps.sensor.community/. It might take some time before the first
